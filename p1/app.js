@@ -1,4 +1,3 @@
-
 const express =require('express');
 const exphbs = require('express-handlebars');
 const app = express();
@@ -14,12 +13,12 @@ app.engine('.hbs', exphbs({
 //use handldebars view engine
 app.set('view engine', '.hbs');
 
-app.use(express.static('stylesheets'));
+app.use(express.static(__dirname + '/public'));
 //defino que cargue el index, hago el request
 app.get('/',(req,res) => {
   res.render('index');
 });
 
 app.listen(3000, () => {
-	console.log( 'funciona');
+	console.log('funciona');
 });
